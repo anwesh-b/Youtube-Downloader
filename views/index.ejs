@@ -1,0 +1,19 @@
+<h1>Video Downloader</h1>
+<form method="post" action="/video">
+    <br>
+    <%= valid%>
+    <input type="text" placeholder="Enter video URL" name="url">
+    <br>
+    <h5>Download format</h5>
+        <input class="with-gap" value="audioandvideo" name="filter" type="radio" checked />
+        mp4
+        <input class="with-gap" value="audioonly" name="filter" type="radio" />
+        mp3
+    <br>
+    <h5>Download quality</h5>
+        <input class="with-gap" value="highest" name="quality" type="radio" checked />
+        High
+        <input class="with-gap" value="lowest" name="quality" type="radio" />
+        Low
+    <input type="submit" placeholder="Download">
+</form>
