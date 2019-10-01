@@ -4,30 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="/css/style.css" > -->
-    <link rel="stylesheet" href="/css/style.css">
     <title>YTDownload</title>
 </head>
 <body>
-    <h1>YouTube Downloader</h1>
-    <form method="post" action="/video">
+    <h1>Youtube Downloader</h1>
+        <form method="post" action="/video">
         <br>
-        <%= valid%>
         <input type="text" placeholder="Enter video URL" name="url">
+        <input type="submit" placeholder="Download">
         <br>
+        <div class="valid" >
+            <%= valid%>
+        </div>
         <h5>Download format</h5>
-            <input class="with-gap" value="audioandvideo" name="filter" type="radio" checked />mp4
-            <input class="with-gap" value="audioonly" name="filter" type="radio" />mp3
+            <input class="regular-radio" value="audioandvideo" name="filter" type="radio" checked />mp4
+            <input class="regular-radio" value="audioonly" name="filter" type="radio" />mp3
         <br>
         <h5>Download quality</h5>
-            <input class="with-gap" value="highest" name="quality" type="radio" checked />High
-            <input class="with-gap" value="lowest" name="quality" type="radio" />Low
-        <input type="submit" placeholder="Download">
+            <input class="regular-radio" value="highest" name="quality" type="radio" checked />High
+            <input class="regular-radio" value="lowest" name="quality" type="radio" />Low
     </form>
+    <% for(var i=0;i<8;i++){
+        %><br>
+    <%} %>
+    Created by: Anwesh Budhathoki   
 </body>
-<footer>
-    <div class="footer">
-        &copy; Anwesh Budhathoki
-    </div>
-</footer>
 </html>
