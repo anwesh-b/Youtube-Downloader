@@ -1,9 +1,9 @@
-const fs = require('fs');
+// const fs = require('fs');
 const ytdl = require('ytdl-core');
 const express = require('express');
 const app = express();
 const port = process.env.PORT||3000;
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 
 
 app.set('view engine','ejs'); 
@@ -15,29 +15,27 @@ app.get('/',(req,res)=>{
 	res.render("index.ejs",{valid:""})
 })
 
-app.post('/video',(req,res)=>{
-	const url = req.body.url;
+app.post('/video',async (req,res)=>{
+	
+	if(!req.body.url){
+		res.render("index.js",{valid:"You need to enter URL"})
+	}
 
-	if(req.body.filter === "audioandvideo") format = "mp4";
-	else if(req.body.filter === "audioonly") format = "mp3";
+	format = (req.body.filter === "audioandvideo")? "mp4" : "mp3";
 	
-	const path = "video."+format;
-	
-	let validate = ytdl.validateURL(url);
+	let validate = ytdl.validateURL(req.body.url);
 	if(!validate) {
 		res.render("index.ejs",{valid:"Please enter valid URL"});
 	}
 	else{
-		const stream = ytdl(url, {filter:req.body.filter} , {quality:req.body.quality})
-		const options = fs.createWriteStream(path)
-	
+		res.attachment(`video.${format}`);	
+		const stream = ytdl(req.body.url, {filter:req.body.filter} , {quality:req.body.quality})
 		stream.on('Error', error => {
 			logger.error('Error occurred while streaming video', error);
 			res.status(502);
 		})
-			
-		stream.pipe(options)
-		res.redirect('/');
+
+		stream.pipe(res)
 	}
 });
 
