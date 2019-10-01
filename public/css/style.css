@@ -1,0 +1,13 @@
+
+
+.footer{
+    position: fixed;
+    font: x-large;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: red;
+    text-align: center;
+    height: 20px; 
+}
