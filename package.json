@@ -4,7 +4,7 @@
   "description": "Download Youtube Videos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Anwesh Budhathoki",
   "license": "ISC",
@@ -14,5 +14,19 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "ytdl-core": "^0.29.7"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abperni/Youtube-Downloader.git"
+  },
+  "keywords": [
+    "This",
+    "is",
+    "awesome"
+  ],
+  "bugs": {
+    "url": "https://github.com/abperni/Youtube-Downloader/issues"
+  },
+  "homepage": "https://github.com/abperni/Youtube-Downloader#readme"
 }
