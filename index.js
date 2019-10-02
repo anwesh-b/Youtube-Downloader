@@ -28,7 +28,8 @@ app.post('/video',async (req,res)=>{
 		res.render("index.ejs",{valid:"Please enter valid URL"});
 	}
 	else{
-		res.attachment(`video.${format}`);	
+		var tit = await ytdl.getBasicInfo(req.body.url)
+		res.attachment(`${tit.title}.${format}`);	
 		const stream = ytdl(req.body.url, {filter:req.body.filter} , {quality:req.body.quality})
 		stream.on('Error', error => {
 			logger.error('Error occurred while streaming video', error);
